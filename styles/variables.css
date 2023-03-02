@@ -1,0 +1,21 @@
+/* ./styles/variables.css */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+/** font-family: proxima-nova **/
+@import url('https://use.typekit.net/uyo7hnu.css');
+/** font-family: elza **/
+@import url('https://use.typekit.net/uyo7hnu.css');
+:root {
+  /* Brand colors */
+  --brand-primary: #444353;
+  --brand-primary--inverted: #ffffff;
+  --brand-secondary: #f7f0ed;
+  --brand-secondary--inverted: #14213d;
+  /* Main Navigation */
+  --main-navigation-color: var(--brand-secondary--inverted);
+  --main-navigation-color--inverted: var(--brand-secondary);
+  /* Typography */
+  --font-family-sans-serif: 'proxima-nova';
+  --font-size-base: 18px;
+  --text-color: var(--brand-secondary--inverted);
+}
