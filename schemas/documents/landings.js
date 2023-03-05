@@ -1,71 +1,70 @@
-import { DocumentIcon } from '@sanity/icons';
+import { DocumentIcon } from "@sanity/icons";
+import ReferenceSelect from "../../components/ReferenceSelect";
+
 export default {
-  name: 'landings',
-  title: 'Landings',
+  name: "landingPages",
+  title: "Landing Pages",
   icon: DocumentIcon,
-  type: 'document',
+  type: "document",
   fields: [
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: "publishedAt",
+      title: "Published at",
+      description: "Will automatically fill itself. For record only.",
+      type: "datetime",
       options: {
-        dateFormat: 'MMMM DD, YYYY',
-        timeFormat: 'h:mm A',
-        calendarTodayLabel: 'Today',
+        dateFormat: "MMMM DD, YYYY",
+        timeFormat: "h:mm A",
+        calendarTodayLabel: "Today",
       },
       initialValue: new Date().toISOString(),
     },
 
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      description: "The main title which will show on the page header section",
+      type: "string",
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      description: "gkcqueens.com/your-slug",
+      type: "slug",
       options: {
-        source: 'title',
+        source: "title",
         maxLength: 96,
       },
     },
     {
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'text',
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
     },
 
     {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
+      name: "mainImage",
+      title: "Main Image",
+      description: "Desktop only",
+      type: "image",
       options: {
         hotspot: true,
       },
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
-    },
-    {
-      name: 'tags',
-      title: 'Tags',
+      name: 'projectsSlider',
+      title: 'Projects Slider',
+      description: "Mobile only - Add/replace images for the main swiper at the header section",
       type: 'array',
-      options: {
-        includeFromRelated: 'tags',
-        layout: 'tags',
-      },
-    },
+      of: [{ type: 'image' }]
+     }
   ],
 
   preview: {
     select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
+      title: "title",
+      author: "author.name",
+      media: "mainImage",
     },
     prepare(selection) {
       const { author } = selection;
