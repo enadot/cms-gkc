@@ -7,18 +7,17 @@ import interiorValues from "./documents/interiorValues";
 import kitchen from "./documents/kitchen";
 import news from "./documents/news";
 import project from "./documents/project";
-import settings from "./singletons/settings";
 import landingPages from "./documents/landings";
+
 export default [
-  settings,
-  landingPages,
   category,
   kitchen,
+  bathroom,
   interiorValues,
   project,
-  bathroom,
   catalog,
   news,
+  landingPages,
   author,
   blockContent,
 ];

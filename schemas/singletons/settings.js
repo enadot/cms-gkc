@@ -14,7 +14,9 @@ export default {
       name: "description",
       title: "Meta Description",
       type: "text",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().max(260).warning("Maximum 260 characters recommended."),
+      description: "Enter a brief meta description (up to 260 characters).",
     },
 
     {

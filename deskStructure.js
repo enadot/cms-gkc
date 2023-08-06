@@ -1,4 +1,4 @@
-import { CogIcon } from "@sanity/icons";
+import { CogIcon, StackCompactIcon, UsersIcon } from "@sanity/icons";
 import { SEOPane } from "sanity-plugin-seo-pane";
 
 export const defaultDocumentNodeResolver = (S) =>
@@ -14,6 +14,26 @@ export default (S) =>
         .child(S.document().schemaType("settings").documentId("settings")),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (item) => !["settings"].includes(item.getId())
+        (item) =>
+          !["media.tag", "category", "author"].includes(
+            item.getId()
+          )
       ),
+      S.divider(),
+      S.listItem()
+        .title("Categories")
+        .icon(StackCompactIcon)
+        .child(
+          S.documentTypeList("category")
+            .title("Categories")
+            .filter('_type == "category"')
+        ),
+      S.listItem()
+        .title("Authors")
+        .icon(UsersIcon)
+        .child(
+          S.documentTypeList("author")
+            .title("Authors")
+            .filter('_type == "author"')
+        ),
     ]);
