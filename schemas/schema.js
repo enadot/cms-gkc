@@ -8,8 +8,12 @@ import kitchen from "./documents/kitchen";
 import news from "./documents/news";
 import project from "./documents/project";
 import landingPages from "./documents/landings";
+import program from "./documents/program";
+import finishes from "./documents/finish";
 
 export default [
+  program,
+  finishes,
   category,
   kitchen,
   bathroom,
