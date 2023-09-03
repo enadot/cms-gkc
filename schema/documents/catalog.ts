@@ -1,8 +1,8 @@
-import { BookIcon } from '@sanity/icons';
+
 export default {
   name: 'catalog',
   title: 'Catalogs',
-  icon: BookIcon,
+
   type: 'document',
   fields: [
     {

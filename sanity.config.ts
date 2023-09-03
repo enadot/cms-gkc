@@ -14,6 +14,9 @@ const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
   "German Kitchen Center Queens";
 
+const singletonActions = new Set(["publish", "discardChanges", "restore"]);
+const singletonTypes = new Set(["settings"]);
+
 export default defineConfig({
   name: "gkc-dashboard",
   title,
@@ -32,6 +35,18 @@ export default defineConfig({
 
   schema: {
     types: schema,
+    // Filter out singleton types from the global “New document” menu options
+    templates: (templates) =>
+      templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
+  },
+
+  document: {
+    // For singleton types, filter out actions that are not explicitly included
+    // in the `singletonActions` list defined above
+    actions: (input, context) =>
+      singletonTypes.has(context.schemaType)
+        ? input.filter(({ action }) => action && singletonActions.has(action))
+        : input,
   },
   studio: {
     components: {

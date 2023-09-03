@@ -8,13 +8,11 @@ export const BRANDS = [
   {
     title: "Leicht",
     value: "leicht",
-    description: "For personal use",
     icon: LeichtLogo,
   },
   {
     title: "Nobilia",
     value: "nobilia",
-    description: "For small teams",
     icon: NobiliaLogo,
   },
 ];

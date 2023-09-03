@@ -1,8 +1,6 @@
-import { TagIcon } from "@sanity/icons";
 export default {
   name: "bathroom",
   title: "Bathroom Vanities",
-  icon: TagIcon,
   type: "document",
   fields: [
     {
