@@ -14,10 +14,7 @@ export default (S) =>
         .child(S.document().schemaType("settings").documentId("settings")),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (item) =>
-          !["media.tag", "category", "author"].includes(
-            item.getId()
-          )
+        (item) => !["media.tag", "category", "author"].includes(item.getId())
       ),
       S.divider(),
       S.listItem()

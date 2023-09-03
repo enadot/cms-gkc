@@ -2,14 +2,17 @@ import { defineType } from "sanity";
 
 export default defineType({
   name: "accessibleImage",
-  type: "object",
+  title: "Image",
+  type: "image",
+  options: {
+    hotspot: true,
+  },
   fields: [
     {
       name: "alt",
       type: "string",
       title: "Alternative text",
       description: "Alternative text is required.",
-      hidden: ({ parent }) => !parent?.asset,
       validation: (Rule) => [Rule.required()],
       options: {
         isHighlighted: true,
@@ -19,7 +22,6 @@ export default defineType({
       name: "caption",
       type: "string",
       title: "Caption",
-      hidden: ({ parent }) => !parent?.asset,
       options: {
         isHighlighted: true,
       },

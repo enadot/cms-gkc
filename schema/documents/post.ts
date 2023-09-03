@@ -1,7 +1,7 @@
 import { CalendarIcon } from "@sanity/icons";
 export default {
-  name: "news",
-  title: "News",
+  name: "post",
+  title: "Blog Posts",
   icon: CalendarIcon,
   type: "document",
   fields: [

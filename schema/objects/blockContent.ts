@@ -1,13 +1,5 @@
-/**
- * This is the schema definition for the rich text fields used for
- * for this blog studio. When you import it in schemas.js it can be
- * reused in other parts of the studio with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
- */
+import { LinkIcon } from "@sanity/icons";
+
 export default {
   title: "Block Content",
   name: "blockContent",
@@ -22,7 +14,7 @@ export default {
       // use your content.
       styles: [
         { title: "Normal", value: "normal" },
-        { title: "H1", value: "h1" },
+
         { title: "H2", value: "h2" },
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
@@ -40,17 +32,38 @@ export default {
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: "URL",
             name: "link",
             type: "object",
+            title: "Link",
             fields: [
               {
-                title: "URL",
                 name: "href",
+                title: "URL",
                 type: "url",
+                validation: (Rule) =>
+                  Rule.uri({
+                    allowRelative: false,
+                    scheme: ["http", "https", "mailto", "tel"],
+                  }),
               },
             ],
           },
+
+          // {
+          //   name: "internalLink",
+          //   type: "object",
+          //   title: "Link internal page",
+
+          //   icon: LinkIcon,
+          //   fields: [
+          //     {
+          //       name: "reference",
+          //       type: "reference",
+          //       title: "Reference",
+          //       to: [{ type: "page" }],
+          //     },
+          //   ],
+          // },
         ],
       },
     },
@@ -58,8 +71,7 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      type: "image",
-      options: { hotspot: true },
+      type: "accessibleImage",
     },
   ],
 };

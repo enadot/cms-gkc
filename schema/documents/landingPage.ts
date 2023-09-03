@@ -1,8 +1,7 @@
 import { DocumentIcon } from "@sanity/icons";
-import ReferenceSelect from "../../components/ReferenceSelect";
 
 export default {
-  name: "landingPages",
+  name: "landingPage",
   title: "Landing Pages",
   icon: DocumentIcon,
   type: "document",
@@ -52,12 +51,13 @@ export default {
       },
     },
     {
-      name: 'projectsSlider',
-      title: 'Projects Slider',
-      description: "Mobile only - Add/replace images for the main swiper at the header section",
-      type: 'array',
-      of: [{ type: 'image' }]
-     }
+      name: "projectsSlider",
+      title: "Projects Slider",
+      description:
+        "Mobile only - Add/replace images for the main swiper at the header section",
+      type: "array",
+      of: [{ type: "image" }],
+    },
   ],
 
   preview: {

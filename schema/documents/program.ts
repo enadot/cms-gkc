@@ -21,6 +21,18 @@ export default defineType({
   // Title, Price Group, Description, Main Image, Finishes, Line availability
   fields: [
     defineField({
+      type: "boolean",
+      name: "discontinued",
+      title: "Discontinued?",
+      initialValue: false,
+      description: "Check if this is program discontinued",
+    }),
+    defineField({
+      title: "Brand",
+      name: "brand",
+      type: "brand",
+    }),
+    defineField({
       type: "string",
       name: "programName",
       title: "Program Name",
@@ -29,27 +41,9 @@ export default defineType({
     }),
 
     defineField({
-      title: "Brand",
-      name: "brand",
-      type: "string",
-      initialValue: "1",
-      options: {
-        list: [
-          { title: "Leicht", value: "leicht" },
-          { title: "Nobilia", value: "nobilia" },
-          { title: "Team7", value: "team7" },
-          { title: "Stosa", value: "stosa" },
-        ],
-        layout: "radio",
-      },
-    }),
-
-    defineField({
-      type: "boolean",
-      name: "discontinued",
-      title: "Discontinued?",
-      initialValue: false,
-      description: "Check if this is program discontinued",
+      name: "priceGroup",
+      type: "rating",
+      validation: (rule) => rule.min(1).max(10),
     }),
     defineField({
       name: "image",
@@ -76,15 +70,6 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
 
-    defineField({
-      title: "Price Group",
-      name: "priceGroup",
-      type: "string",
-      initialValue: "1",
-      options: {
-        list: priceGroupOptions,
-      },
-    }),
     defineField({
       title: "Line Availability",
       name: "lines",
