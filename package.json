@@ -17,28 +17,16 @@
   "dependencies": {
     "@sanity/assist": "^1.0.11",
     "@sanity/eslint-config-studio": "^2.0.0",
-<<<<<<< HEAD
     "@sanity/vision": "^3.14.4",
     "dotenv": "^16.3.1",
-    "eslint": "^8.46.0",
-    "next": "^13.4.12",
     "next-sanity": "^5.1.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.14.4",
     "sanity-plugin-cloudinary": "^1.1.1",
-=======
-    "@sanity/vision": "^3.1.4",
     "eslint": "^8.6.0",
     "next": "^13.4.19",
-    "next-sanity": "^0.5.2",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "sanity": "^3.14.5",
-    "sanity-plugin-cloudinary": "^1.0.1",
->>>>>>> f91efac5851721f5552623c0d308c127742a78a6
     "sanity-plugin-media": "^2.0.2",
     "sanity-plugin-seo-pane": "^2.0.1",
     "sanity-plugin-seo-tools": "^3.0.0",
@@ -50,11 +38,7 @@
     "@sanity/asset-utils": "^1.2.3",
     "@sanity/cli": "^3.1.4",
     "tailwindcss": "^3.2.4",
-<<<<<<< HEAD
-    "typescript": "^5.1.6",
-=======
     "typescript": "^5.2.2",
->>>>>>> f91efac5851721f5552623c0d308c127742a78a6
     "vite-plugin-node-polyfills": "^0.8.2"
   }
 }
