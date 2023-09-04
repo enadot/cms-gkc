@@ -62,6 +62,8 @@ export default (S) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           ![
+            "home",
+            "settings",
             "media.tag",
             "catalog",
             "category",

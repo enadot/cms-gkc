@@ -1,6 +1,7 @@
 import { defineField, defineType } from "sanity";
 
 import { TiersIcon } from "@sanity/icons";
+import { finishBrowserGroups } from ".././groups";
 
 export default defineType({
   name: "finish",
@@ -8,6 +9,7 @@ export default defineType({
   type: "document",
   icon: TiersIcon,
   preview: { select: { title: "name", subtitle: "description" } },
+  groups: finishBrowserGroups,
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
 
@@ -19,13 +21,6 @@ export default defineType({
       initialValue: false,
       description: "Check if this is finish discontinued",
     }),
-    defineField({
-      name: "programName",
-      title: "Program Name",
-      type: "reference",
-      to: [{ type: "program" }],
-      validation: (Rule) => Rule.required(),
-    }),
 
     defineField({
       name: "name",
@@ -34,9 +29,34 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      title: "Type",
+      name: "type",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "grid",
+        list: [
+          { title: "Laminate", value: "laminate" },
+          { title: "Texture Laminate", value: "texture_laminate" },
+          { title: "Paint", value: "paint" },
+          { title: "Lacquer", value: "lacquer" },
+          { title: "Fénix", value: "fénix" },
+          { title: "Glass", value: "glass" },
+          { title: "Wood Veneer", value: "wood_veneer" },
+          { title: "Ceramic", value: "ceramic" },
+          { title: "Aluminum Coated", value: "aluminum_coated" },
+          { title: "Stone Look", value: "stone_look" },
+          { title: "Metal Coated", value: "metal_coated" },
+          { title: "Concrete", value: "concrete" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       title: "Texture",
       name: "texture",
       type: "string",
+      group: "style",
       initialValue: "solid",
       options: {
         list: [
@@ -50,6 +70,7 @@ export default defineType({
       title: "Shade",
       name: "shade",
       type: "string",
+      group: "style",
       initialValue: "light",
       options: {
         list: [
@@ -63,6 +84,7 @@ export default defineType({
       title: "Door Style",
       name: "doorStyle",
       type: "string",
+      group: "style",
       initialValue: "slab",
       options: {
         list: [
@@ -77,6 +99,7 @@ export default defineType({
       title: "Finish door photo",
       description: "Main image for this finish",
       type: "image",
+      group: "media",
       validation: (Rule) => Rule.required(),
       fields: [
         {
@@ -92,12 +115,14 @@ export default defineType({
       name: "materialShort",
       title: "Material (Short)",
       type: "string",
+      group: "material",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "materialLong",
       title: "Material (Long)",
       type: "text",
+      group: "material",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -105,6 +130,7 @@ export default defineType({
       name: "sheen",
       description: "Select all that apply",
       type: "array",
+      group: "style",
       of: [{ type: "string" }],
       options: {
         list: [
@@ -117,23 +143,12 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      title: "Group",
-      name: "group",
-      type: "array",
-      of: [{ type: "string" }],
-      options: {
-        list: [
-          { title: "Laminates", value: "laminates" },
-          { title: "Paints", value: "paints" },
-        ],
-      },
-      validation: (Rule) => Rule.required(),
-    }),
+
     defineField({
       name: "cleaningInstructions",
       title: "Cleaning Instructions",
       type: "text",
+      group: "cleaning",
       validation: (Rule) => Rule.required(),
     }),
   ],

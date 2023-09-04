@@ -13,8 +13,12 @@ import finish from "./documents/finish";
 import accessibleImage from "./objects/accessibleImage";
 import { ratingType } from "./rating/ratingType";
 import { brandType } from "./brand/brandType";
+import home from "./singletons/home";
+import settings from "./singletons/settings";
 
 export default [
+  home,
+  settings,
   program,
   finish,
   category,
