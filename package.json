@@ -1,8 +1,8 @@
 {
-  "name": "gkc-dashboard",
+  "name": "levantine-studio",
   "private": true,
   "version": "2.0.0",
-  "description": "German Kitchen Center CMS Backend/Dashboard",
+  "description": "Levantine NYC CMS Dashboard",
   "main": "package.json",
   "author": "Aviv Avraham <aviv@enadot.com>",
   "license": "ISC",
@@ -17,18 +17,20 @@
   "dependencies": {
     "@sanity/assist": "^1.0.11",
     "@sanity/eslint-config-studio": "^2.0.0",
-    "@sanity/vision": "^3.1.4",
-    "eslint": "^8.6.0",
-    "next": "^13.4.19",
-    "next-sanity": "^0.5.2",
+    "@sanity/vision": "^3.14.4",
+    "dotenv": "^16.3.1",
+    "next-sanity": "^5.1.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sanity-plugin-cloudinary": "^1.1.1",
+    "eslint": "^8.6.0",
+    "next": "^13.4.19",
     "sanity": "^3.14.5",
-    "sanity-plugin-cloudinary": "^1.0.1",
     "sanity-plugin-media": "^2.0.2",
     "sanity-plugin-seo-pane": "^2.0.1",
     "sanity-plugin-seo-tools": "^3.0.0",
+    "sanity-plugin-tags": "^2.0.1",
     "styled-components": "^5.2.0",
     "yoastseo": "^1.91.0"
   },
@@ -38,9 +40,5 @@
     "tailwindcss": "^3.2.4",
     "typescript": "^5.2.2",
     "vite-plugin-node-polyfills": "^0.8.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/enadot/gkcqueens.git"
   }
 }
