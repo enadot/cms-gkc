@@ -54,7 +54,7 @@ export default (S) =>
             .title("All Types")
             .items([
               S.documentTypeListItem("program").title("Programs"),
-              S.documentTypeListItem("finish").title("Finishes"),
+              S.documentTypeListItem("color").title("Colors"),
             ])
         ),
       S.divider(),

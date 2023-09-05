@@ -9,18 +9,18 @@ import post from "./documents/post";
 import project from "./documents/project";
 import landingPage from "./documents/landingPage";
 import program from "./documents/program";
-import finish from "./documents/finish";
 import accessibleImage from "./objects/accessibleImage";
 import { ratingType } from "./rating/ratingType";
 import { brandType } from "./brand/brandType";
 import home from "./singletons/home";
 import settings from "./singletons/settings";
+import color from "./documents/color";
 
 export default [
   home,
   settings,
   program,
-  finish,
+  color,
   category,
   kitchen,
   bathroom,

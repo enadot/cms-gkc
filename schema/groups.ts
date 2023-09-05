@@ -1,4 +1,4 @@
-export const finishBrowserGroups = [
+export const cabinetBrowserGroups = [
   {
     name: "media",
     title: "Media",
