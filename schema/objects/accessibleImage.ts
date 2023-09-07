@@ -20,6 +20,13 @@ export default defineType({
       name: "caption",
       type: "string",
       title: "Caption",
+      description: "Optional: Add a short description for this image",
+    },
+    {
+      name: "credit",
+      type: "string",
+      title: "Photographer Credit",
+      description: "Optional: add here the name of the photographer",
     },
   ],
 });
