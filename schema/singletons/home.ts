@@ -28,5 +28,11 @@ export default defineType({
         layout: "tags",
       },
     }),
+    defineField({
+      name: "content",
+      title: "Content",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
   ],
 });
