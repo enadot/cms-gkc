@@ -18,12 +18,7 @@ export default defineType({
           description: "Alternative text is required.",
           validation: (Rule) => [Rule.required()],
         },
-        {
-          name: "caption",
-          type: "string",
-          title: "Caption",
-          description: "Optional: Add a short description for this image",
-        },
+
         {
           name: "credit",
           type: "string",
@@ -43,12 +38,6 @@ export default defineType({
           title: "Alternative text",
           description: "Alternative text is required.",
           validation: (Rule) => [Rule.required()],
-        },
-        {
-          name: "caption",
-          type: "string",
-          title: "Caption",
-          description: "Optional: Add a short description for this image",
         },
         {
           name: "credit",
