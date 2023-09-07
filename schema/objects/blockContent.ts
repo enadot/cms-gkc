@@ -73,5 +73,8 @@ export default {
     {
       type: "accessibleImage",
     },
+    {
+      type: "twoColumnImages",
+    },
   ],
 };

@@ -15,6 +15,7 @@ import { brandType } from "./brand/brandType";
 import home from "./singletons/home";
 import settings from "./singletons/settings";
 import color from "./documents/color";
+import twoColumnImages from "./objects/twoColumnImages";
 
 export default [
   home,
@@ -32,6 +33,7 @@ export default [
   author,
   blockContent,
   accessibleImage,
+  twoColumnImages,
   ratingType,
   brandType,
 ];
