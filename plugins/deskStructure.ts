@@ -5,15 +5,36 @@ import {
   DocumentsIcon,
   ThListIcon,
   HomeIcon,
+  CalendarIcon,
   BookIcon as CatalogIcon,
   DocumentIcon as PageIcon,
 } from "@sanity/icons";
-import { SEOPane } from "sanity-plugin-seo-pane";
+import { DefaultDocumentNodeResolver, StructureBuilder } from "sanity/desk";
+import Iframe from "sanity-plugin-iframe-pane";
 
-export const defaultDocumentNodeResolver = (S) =>
-  S.document().views([S.view.form()]);
+export const defaultDocumentNodeResolver: DefaultDocumentNodeResolver = (
+  S: StructureBuilder,
+  { schemaType }
+) => {
+  switch (schemaType) {
+    case `post`:
+      return S.document().views([
+        S.view.form(),
+        S.view
+          .component(Iframe)
+          .options({
+            url: (doc) =>
+              doc?.slug?.current &&
+              `http://localhost:3002/blog/${doc.slug.current}`,
+          })
+          .title("Preview"),
+      ]);
+    default:
+      return S.document().views([S.view.form()]);
+  }
+};
 
-export default (S) =>
+export default (S: StructureBuilder) =>
   S.list()
     .title("Base")
     .items([
@@ -62,7 +83,9 @@ export default (S) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           ![
+            "post",
             "home",
+            "color",
             "settings",
             "media.tag",
             "catalog",
@@ -77,6 +100,10 @@ export default (S) =>
             "landingPage",
           ].includes(item.getId())
       ),
+      S.listItem()
+        .title("Blog")
+        .icon(CalendarIcon)
+        .child(S.documentTypeList("post").title("Posts")),
       S.listItem()
         .title("Categories")
         .icon(StackCompactIcon)

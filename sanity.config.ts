@@ -2,8 +2,10 @@ import { visionTool } from "@sanity/vision";
 import { theme } from "https://themer.sanity.build/api/hues?default=darkest:14213d&primary=3f516e;darkest:2b3640&transparent=858494";
 import { defineConfig } from "sanity";
 import { cloudinaryAssetSourcePlugin } from "sanity-plugin-cloudinary";
+import { SanityDocument } from "sanity";
 import { media } from "sanity-plugin-media";
-import { deskTool } from "sanity/desk";
+import { deskTool, type DefaultDocumentNodeResolver } from "sanity/desk";
+import Iframe from "sanity-plugin-iframe-pane";
 import { defaultDocumentNodeResolver } from "./plugins/deskStructure";
 import { apiVersion, dataset, projectId } from "./lib/sanity.api";
 import deskStructure from "./plugins/deskStructure";
@@ -41,8 +43,6 @@ export default defineConfig({
   },
 
   document: {
-    // For singleton types, filter out actions that are not explicitly included
-    // in the `singletonActions` list defined above
     actions: (input, context) =>
       singletonTypes.has(context.schemaType)
         ? input.filter(({ action }) => action && singletonActions.has(action))
