@@ -11,6 +11,12 @@ import {
 } from "@sanity/icons";
 import { DefaultDocumentNodeResolver, StructureBuilder } from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
+import { SanityDocument } from "next-sanity";
+
+const baseUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3002"
+    : "https://www.gkcqueens.com";
 
 export const defaultDocumentNodeResolver: DefaultDocumentNodeResolver = (
   S: StructureBuilder,
@@ -23,9 +29,10 @@ export const defaultDocumentNodeResolver: DefaultDocumentNodeResolver = (
         S.view
           .component(Iframe)
           .options({
-            url: (doc) =>
-              doc?.slug?.current &&
-              `http://localhost:3002/blog/${doc.slug.current}`,
+            url: (doc: SanityDocument) =>
+              doc?.slug?.current
+                ? `${baseUrl}/api/preview?slug=${doc.slug.current}`
+                : `${baseUrl}/api/preview`,
           })
           .title("Preview"),
       ]);

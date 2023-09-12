@@ -1,19 +1,28 @@
-import { StackCompactIcon } from '@sanity/icons';
+import { StackCompactIcon } from "@sanity/icons";
 export default {
-  name: 'category',
-  title: 'Categories',
+  name: "category",
+  title: "Categories",
   icon: StackCompactIcon,
-  type: 'document',
+  type: "document",
+
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: "title",
+      title: "Title",
+      type: "string",
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+      },
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "text",
     },
   ],
 };

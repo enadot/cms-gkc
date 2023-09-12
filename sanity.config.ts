@@ -11,6 +11,7 @@ import { apiVersion, dataset, projectId } from "./lib/sanity.api";
 import deskStructure from "./plugins/deskStructure";
 import schema from "./schema/schema";
 import { Logo } from "./plugins/logo/Logo";
+import { draftReviewPluginV3 } from "sanity-plugin-draft-review-v3";
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -33,6 +34,7 @@ export default defineConfig({
     media(),
     visionTool({ defaultApiVersion: apiVersion }),
     cloudinaryAssetSourcePlugin(),
+ 
   ],
 
   schema: {

@@ -27,29 +27,10 @@ export default {
     {
       name: "category",
       title: "Category",
-      type: "string",
-      options: {
-        list: [
-          { title: "Kitchen & Architecture", value: "Kitchen & Architecture" },
-          { title: "Kitchen Ideas", value: "Kitchen Ideas & Inspiration" },
-          {
-            title: "Kitchen Remodeling Tips",
-            value: "Kitchen Remodeling Tips",
-          },
-          {
-            title: "Home Improvements Ideas",
-            value: "Home Improvements Ideas",
-          },
-          {
-            title: "Kitchen Accessories",
-            value: "Kitchen Accessories",
-          },
-          {
-            title: "Company News",
-            value: "Company News",
-          },
-        ],
-      },
+      type: "reference",
+      to: [{ type: "category" }],
+      
+    
     },
 
     {
