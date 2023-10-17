@@ -1,5 +1,5 @@
 import { LinkIcon } from "@sanity/icons";
-
+import { defineType, defineArrayMember } from "sanity";
 export default {
   title: "Block Content",
   name: "blockContent",
@@ -70,11 +70,11 @@ export default {
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    {
+    defineArrayMember({
       type: "accessibleImage",
-    },
-    {
+    }),
+    defineArrayMember({
       type: "twoColumnImages",
-    },
+    }),
   ],
 };
