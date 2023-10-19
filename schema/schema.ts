@@ -16,6 +16,7 @@ import home from "./singletons/home";
 import settings from "./singletons/settings";
 import color from "./documents/color";
 import twoColumnImages from "./objects/twoColumnImages";
+import sliderImage from "./objects/sliderImage";
 
 export default [
   home,
@@ -36,4 +37,5 @@ export default [
   twoColumnImages,
   ratingType,
   brandType,
+  sliderImage,
 ];

@@ -5,13 +5,14 @@ import { cloudinaryAssetSourcePlugin } from "sanity-plugin-cloudinary";
 import { SanityDocument } from "sanity";
 import { media } from "sanity-plugin-media";
 import { deskTool, type DefaultDocumentNodeResolver } from "sanity/desk";
-import Iframe from "sanity-plugin-iframe-pane";
+
 import { defaultDocumentNodeResolver } from "./plugins/deskStructure";
 import { apiVersion, dataset, projectId } from "./lib/sanity.api";
 import deskStructure from "./plugins/deskStructure";
 import schema from "./schema/schema";
 import { Logo } from "./plugins/logo/Logo";
 import { draftReviewPluginV3 } from "sanity-plugin-draft-review-v3";
+import { scheduledPublishing } from "@sanity/scheduled-publishing";
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -32,9 +33,9 @@ export default defineConfig({
       defaultDocumentNode: defaultDocumentNodeResolver,
     }),
     media(),
+    scheduledPublishing(),
     visionTool({ defaultApiVersion: apiVersion }),
     cloudinaryAssetSourcePlugin(),
- 
   ],
 
   schema: {
