@@ -9,14 +9,17 @@ export default defineType({
       title: "SEO",
     },
     {
-      name: "info",
-      title: "Information",
+      name: "media",
+    },
+    {
+      name: "content",
     },
   ],
   fields: [
     defineField({
       name: "title",
-      title: "Site Title",
+      title: "Homepage Title",
+      description: "The <title/> of the homepage.",
       type: "string",
       group: "seo",
     }),
@@ -25,6 +28,7 @@ export default defineType({
       title: "Meta Description",
       type: "text",
       group: "seo",
+      rows: 4,
       validation: (Rule) =>
         Rule.required().max(260).warning("Maximum 260 characters recommended."),
       description: "Enter a brief meta description (up to 260 characters).",
@@ -43,6 +47,8 @@ export default defineType({
       name: "hero",
       title: "Hero Slider",
       type: "array",
+      group: "media",
+      description: "The main hero slider on the homepage.",
       of: [{ type: "sliderImage" }],
     }),
     defineField({

@@ -1,5 +1,6 @@
 import { loadEnvConfig } from "@next/env";
 import { defineCliConfig } from "sanity/cli";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 const dev = process.env.NODE_ENV !== "production";
 loadEnvConfig(__dirname, dev, { info: () => null, error: console.error });
@@ -12,4 +13,12 @@ const dataset = process.env.SANITY_STUDIO_DATASET;
 
 export default defineCliConfig({
   api: { projectId, dataset },
+  vite: (prev) => ({
+    ...prev,
+    plugins: [...prev.plugins, nodePolyfills()],
+    define: {
+      ...prev.define,
+      "process.env": {},
+    },
+  }),
 });

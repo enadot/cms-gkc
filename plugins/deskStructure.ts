@@ -6,12 +6,15 @@ import {
   ThListIcon,
   HomeIcon,
   CalendarIcon,
+  ImageIcon,
   BookIcon as CatalogIcon,
   DocumentIcon as PageIcon,
 } from "@sanity/icons";
 import { DefaultDocumentNodeResolver, StructureBuilder } from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
 import { SanityDocument } from "next-sanity";
+import { SEOPane } from "sanity-plugin-seo-pane";
+import resolveProductionUrl from "resolveProductionUrl";
 
 const baseUrl =
   process.env.NODE_ENV === "development"
@@ -54,26 +57,43 @@ export default (S: StructureBuilder) =>
         .title("Pages")
         .icon(DocumentsIcon)
         .child(
-          S.list()
+          S.documentTypeList("page")
             .title("All Pages")
-            .items([
-              S.documentTypeListItem("kitchen")
-                .title("Kitchens")
-                .icon(PageIcon),
-              S.documentTypeListItem("project")
-                .title("Projects Gallery")
-                .icon(PageIcon),
-              S.documentTypeListItem("bathroom")
-                .title("Bathroom Vanities")
-                .icon(PageIcon),
-              S.documentTypeListItem("interiorValue")
-                .title("Interior Values")
-                .icon(PageIcon),
-              S.documentTypeListItem("landingPage")
-                .title("Landing Pages")
-                .icon(PageIcon),
-            ])
+            .child(
+              S.document()
+                .schemaType("page")
+                .views([
+                  S.view.form(),
+                  S.view
+                    .component(SEOPane)
+                    .options({
+                      keywords: `seo.keywords`,
+                      synonyms: `seo.synonyms`,
+                      url:`http://localhost:300`
+                    })
+                    .title("SEO Analysis"),
+                ])
+            )
         ),
+      // .child(
+      //   S.list()
+      //     .title("Galleries")
+      //     .items([
+      //       S.documentTypeListItem("kitchen")
+      //         .title("Kitchens")
+      //         .icon(ImageIcon),
+      //       S.documentTypeListItem("project")
+      //         .title("Projects")
+      //         .icon(ImageIcon),
+      //       S.documentTypeListItem("bathroom")
+      //         .title("Bathroom Vanities")
+      //         .icon(ImageIcon),
+      //       S.documentTypeListItem("interiorValue")
+      //         .title("Interior Values")
+      //         .icon(ImageIcon),
+      //     ])
+      // ),
+
       S.listItem()
         .title("Finishes Browser")
         .icon(ThListIcon)
@@ -92,6 +112,7 @@ export default (S: StructureBuilder) =>
           ![
             "post",
             "home",
+            "page",
             "color",
             "settings",
             "media.tag",

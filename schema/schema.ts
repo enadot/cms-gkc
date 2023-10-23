@@ -17,9 +17,14 @@ import settings from "./singletons/settings";
 import color from "./documents/color";
 import twoColumnImages from "./objects/twoColumnImages";
 import sliderImage from "./objects/sliderImage";
+import navItem from "./objects/navItem";
+import subMenuItem from "./objects/subMenuItem";
+import page from "./documents/page";
 
 export default [
   home,
+  navItem,
+  subMenuItem,
   settings,
   program,
   color,
@@ -30,6 +35,7 @@ export default [
   project,
   catalog,
   post,
+  page,
   landingPage,
   author,
   blockContent,
